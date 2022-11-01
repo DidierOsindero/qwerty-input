@@ -8,6 +8,7 @@ function WordDescription({ wordToDescribe }: WordDescriptionProps): JSX.Element 
   const hasAtLeastFiveCharacters = wordToDescribe.length > 5;
   const containsAVowel = hasAVowel(wordToDescribe);
   const hasTheLetterQ = wordToDescribe.toLowerCase().match('q');
+  //const hasPunctuation = wordToDescribe
 
   return (
     <ul>
