@@ -1,5 +1,6 @@
 import { hasAVowel } from "../utils/hasAVowel";
 import { hasPunctuation } from "../utils/hasPunctuation";
+import { isInputStrong } from "../utils/isInputStrong"
 
 interface WordDescriptionProps {
   wordToDescribe: string;
@@ -12,18 +13,7 @@ function WordDescription({
   const containsAVowel = hasAVowel(wordToDescribe);
   const hasTheLetterQ = wordToDescribe.toLowerCase().match("q");
   const containsPunctuation = hasPunctuation(wordToDescribe);
-  const isInputStrong = (input: string): boolean => {
-    if (
-      input.length > 6 &&
-      input.toLowerCase() !== input &&
-      input.toUpperCase() !== input &&
-      input.split("").some((el) => "!@£$%^&*?".includes(el))
-    ) {
-      return true;
-    }
-
-    return false;
-  };
+  const isStrong = isInputStrong(wordToDescribe)
 
   return (
     <ul>
@@ -31,7 +21,7 @@ function WordDescription({
       {containsAVowel && <li>Contains a vowel</li>}
       {hasTheLetterQ && <li>Contains the letter Q</li>}
       {containsPunctuation && <li>Contains punctuation mark(s)</li>}
-      {isInputStrong(wordToDescribe) && <li>Input is Strong</li>}
+      {isStrong && <li>Password is strong</li>}
     </ul>
   );
 }
