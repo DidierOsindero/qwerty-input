@@ -1,6 +1,6 @@
 import { hasAVowel } from "../utils/hasAVowel";
 import { hasPunctuation } from "../utils/hasPunctuation";
-import { isInputStrong } from "../utils/isInputStrong"
+import { isInputStrong } from "../utils/isInputStrong";
 
 interface WordDescriptionProps {
   wordToDescribe: string;
@@ -13,7 +13,7 @@ function WordDescription({
   const containsAVowel = hasAVowel(wordToDescribe);
   const hasTheLetterQ = wordToDescribe.toLowerCase().match("q");
   const containsPunctuation = hasPunctuation(wordToDescribe);
-  const isStrong = isInputStrong(wordToDescribe)
+  const isStrong = isInputStrong(wordToDescribe);
 
   return (
     <ul>
